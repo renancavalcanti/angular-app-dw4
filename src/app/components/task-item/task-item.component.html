@@ -1,0 +1,13 @@
+<div class="task-item" [class.completed]="task.done">
+    <p>{{task.description}}</p>
+
+    <div class="task-status">
+        <span *ngIf="task.done">Completed</span>
+        <span *ngIf="!task.done">Pending</span>
+    </div>
+
+    <div class="task-actions">
+        <button *ngIf="!task.done" (click)="markDone()"> Mark as Done</button>
+        <button (click)="removeTask()">Delete</button>
+    </div>
+</div>

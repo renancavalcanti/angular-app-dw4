@@ -3,10 +3,11 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CounterComponent } from './components/counter/counter.component';
 import { ListProductsComponent } from './components/list-products/list-products.component';
+import { LoginComponent } from './components/login/login.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, CounterComponent, ListProductsComponent],
+  imports: [RouterOutlet, CommonModule, CounterComponent, ListProductsComponent, LoginComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
