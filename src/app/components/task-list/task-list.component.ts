@@ -30,9 +30,16 @@ export class TaskListComponent {
   }
 
   onUpdateTask(taskId: string){
-    this.taskService.updateTask(taskId).subscribe(()=>{
-      this.loadTasks();
-    });
+    this.taskService.updateTask(taskId).subscribe(
+      (response:any)=>{
+        console.log(response)
+        this.loadTasks();
+      },
+      (error)=>{
+          console.log(error)
+          alert(error.error.error)
+      }
+  );
   }
 
   onDeleteTask(taskId: string){

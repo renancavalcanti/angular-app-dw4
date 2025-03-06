@@ -4,14 +4,24 @@ import { RouterOutlet } from '@angular/router';
 import { CounterComponent } from './components/counter/counter.component';
 import { ListProductsComponent } from './components/list-products/list-products.component';
 import { LoginComponent } from './components/login/login.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { AuthService } from './services/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, CounterComponent, ListProductsComponent, LoginComponent],
+  imports: [RouterOutlet, CommonModule, CounterComponent, ListProductsComponent, LoginComponent, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+
+  auth$: Observable<boolean>;
+
+  constructor(private authService: AuthService){
+    this.auth$ = this.authService.auth$;
+  }
+
   name = 'Renan Cavalcanti';
   imageUrl = "https://i.pinimg.com/736x/39/4b/f6/394bf6e1c3f2a7351105290ef9fe9dd1.jpg";
 
